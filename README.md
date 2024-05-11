@@ -10,3 +10,8 @@
   2. Github acc
   3. VS Code to Github
   4. publish Repo
+5. List Products
+  1. create Product type
+  2. create products array
+  3. add product images
+  4. render products
