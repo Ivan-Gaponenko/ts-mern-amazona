@@ -1,1 +1,12 @@
 # TypeScript MERN AMAZONA
+
+## Lessons
+
+1. Intro
+2. Tools
+3. TS React App By Vite
+4. Git Repo
+  1. add README.md
+  2. Github acc
+  3. VS Code to Github
+  4. publish Repo
