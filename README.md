@@ -35,8 +35,30 @@
    8. create route for /api/products
    9. return products
    10. run npm start
-  9. Fetch Products From Backend
-   1. npm install axios
-   2. set axios base url
-   3. use effect hook
-   4. use reducer hook
+9. Fetch Products From Backend
+  1. npm install axios
+  2. set axios base url
+  3. use effect hook
+  4. use reducer hook
+10. # Video-11-Set-Page-Title
+  1. npm i react-helmet-async
+  2. main.tsx
+
+    ```js
+    import { HelmetProvider } from 'react-helmet-async'
+
+    ...
+    <HelmetProvider>
+      <RouterProvider router={router} />
+    </HelmetProvider>
+    ```
+
+  3. HomePage.tsx
+
+    ```js
+    import { Helmet } from 'react-helmet-async'
+    ...
+    <Helmet>
+          <title>Amazona</title>
+    </Helmet>
+    ```
