@@ -403,6 +403,7 @@
     </Helmet>
     ```
 12. # Video-12-Load-Products-By-React-Query
+
   1. npm i @tanstack/react-query @tanstack/react-query-devtools
 
   2. main.tsx
@@ -472,3 +473,38 @@
       )}
 
     ```
+13. # Video-13-Create-Product-Page
+
+1. index.ts
+
+   ```js
+   app.get('/api/products/:slug', (req: Request, res: Response) => {
+     res.json(sampleProducts.find((x) => x.slug === req.params.slug))
+   })
+   ```
+
+2. productHooks.ts
+
+   ```js
+   export const useGetProductDetailsBySlugQuery = (slug: string) =>
+     useQuery({
+       queryKey: ['products', slug],
+       queryFn: async () =>
+         ((await apiClient.get) < Product > `api/products/slug/${slug}`).data,
+     })
+   ```
+
+3. ProductPage.tsx
+
+   ```js
+
+      function ProductPage() {
+           const params = useParams()
+        const { slug } = params
+
+        const {
+          data: product,
+          refetch,
+          isLoading,
+          error,
+        } = useGetProductDetailsBySlugQuery(slug!)
