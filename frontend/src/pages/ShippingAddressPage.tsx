@@ -17,7 +17,7 @@ export default function ShippingAddressPage() {
     if (!userInfo) {
       navigate('/signin?redirect=/shipping')
     }
-  }, [userInfo, navigate])
+  }, [userInfo, navigate]) // replaced by using ProtectedRoute
 
   const [fullName, setFullName] = useState(shippingAddress.fullName || '')
   const [address, setAddress] = useState(shippingAddress.address || '')
