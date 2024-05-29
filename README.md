@@ -2024,7 +2024,6 @@ app.use('/api/products', productRouter)
    ```js
    <Route path="/placeorder" element={<PlaceOrderPage />} />
    ```
-
 27. # Video-27-Create-Order-Page
 
 1. orderRouter.ts
@@ -2047,12 +2046,12 @@ app.use('/api/products', productRouter)
 2. orderHooks.tsx
 
    ```js
-   export const useGetOrderDetailsQuery = (id: string) =>
-     useQuery({
-       queryKey: ['orders', id],
-       queryFn: async () =>
-         ((await apiClient.get) < Order > `api/orders/${id}`).data,
-     })
+    export const useGetOrderDetailsQuery = (id: string) =>
+  useQuery({
+    queryKey: ['orders', id],
+    queryFn: async () =>
+      (await apiClient.get<Order>(`api/orders/${id}`)).data,
+  })
    ```
 
 3. OrderPage.ts
