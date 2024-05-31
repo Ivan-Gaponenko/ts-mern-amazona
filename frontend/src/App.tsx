@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
-import { Button, Container, Form, FormControl, InputGroup, Nav, NavDropdown, NavItem, Navbar } from "react-bootstrap";
-import { Link, Outlet, NavLink } from "react-router-dom";
+import { Button, Container, Form, FormControl, InputGroup, Nav, NavDropdown, Navbar } from "react-bootstrap";
+import { Link, Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Store } from "./Store";
@@ -39,15 +39,13 @@ function App() {
           expand="lg"
         >
           <div className="d-flex justify-content-between align-items-center">
-            {/* <LinkContainer to="/"> */}
-            <NavLink 
+            <Link 
               className=".navbar-brand"
               to="/"
               style={{ textDecoration: 'none'}}
             >
               <Navbar.Brand>amazona</Navbar.Brand>
-            </NavLink>
-            {/* </LinkContainer> */}
+            </Link>
             <Form className="flex-grow-1 d-flex me-auto">
               <InputGroup>
                 <FormControl
@@ -109,9 +107,13 @@ function App() {
                   </NavDropdown>
                 ) : (
                   <NavDropdown className="header-link" title={`Hello, sign in`}>
-                    <NavLink to="/signin" style={{ textDecoration: 'none'}}>
-                      <NavDropdown.Item>Sign In</NavDropdown.Item>
-                    </NavLink>
+                    <Link 
+                      to="/signin" 
+                      className="dropdown-item" 
+                      style={{ textDecoration: 'none'}}
+                    >
+                      Sign In
+                    </Link>
                   </NavDropdown>
                 )}
                 
