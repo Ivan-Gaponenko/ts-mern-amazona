@@ -1,10 +1,11 @@
 import { useContext, useEffect } from "react";
 import { Badge, Button, Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
-import { Link, Outlet } from "react-router-dom";
-// import { LinkContainer } from "react-router-bootstrap";
+import { Link, Outlet, NavLink } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Store } from "./Store";
+// import { LinkContainer } from "react-router-bootstrap";
+import NavbarBrand from 'react-bootstrap/NavbarBrand'
 
 function App() {
   const {
@@ -35,9 +36,13 @@ function App() {
       <header>
         <Navbar expand="lg">
           <Container>
-            {/* <LinkContainer to="/"> */}
-              <Navbar.Brand>tsamazona</Navbar.Brand>
-            {/* </LinkContainer> */}
+            <NavLink 
+              className=".navbar-brand h2" 
+              to="/" 
+              style={{ textDecoration: 'none'}}
+            >
+              <NavbarBrand>tsamazona</NavbarBrand>
+            </NavLink>
           </Container>
           <Nav>
             <Button variant={mode} onClick={switchModeHandler}>
@@ -52,7 +57,15 @@ function App() {
               )}
             </Link>
             {userInfo ? (
-              <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
+              <NavDropdown
+                title={userInfo.name}
+                id="basic-nav-dropdown"
+                className="dropdown-menu-start"
+              >
+                <Link className="dropdown-item" to="/orderhistory">
+                  Order History
+                  {/* <NavItem></NavItem> */}
+                </Link>
                 <Link
                   className="dropdown-item"
                   to="#signout"
